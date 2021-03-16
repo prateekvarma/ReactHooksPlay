@@ -2,13 +2,22 @@ import { useState } from 'react';
 
 function App() {
   const [count, setCount] = useState(0)
+  const [isOn, setIsOn] = useState(false)
 
   const incrementCount = () => {
     setCount(prevCount => prevCount + 1)
   };
 
+  const changeColor = () => {
+    setIsOn(prevColor => !prevColor)
+  }
+
   return (
+    <>
     <button onClick={incrementCount}>I was clicked {count} times</button>
+    <h4>Toggle Color:</h4>
+    <div onClick={changeColor} style={{ height:"50px", width:"50px", background: isOn ? "yellow" : "gray" }}></div>
+    </>
   );
 }
 
