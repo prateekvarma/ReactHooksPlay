@@ -13,14 +13,17 @@ function Login(){
             password
         }
         setUser(userData);
+        // following will clear username and pass after submit
+        setUsername('');
+        setPassword('');
     }
 
     return(
         <div style={{ textAlign:'center' }}>
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Username" onChange={event => setUsername(event.target.value)}></input>
-            <input type="password" placeholder="Password" onChange={event => setPassword(event.target.value)}></input>
+            <input type="text" placeholder="Username" onChange={event => setUsername(event.target.value)} value={username}></input>
+            <input type="password" placeholder="Password" onChange={event => setPassword(event.target.value)} value={password}></input>
             <button type="submit">Submit</button>
         </form>
         {/* Following displays user and pass, if any */}
